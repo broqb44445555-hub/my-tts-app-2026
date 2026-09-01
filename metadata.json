@@ -1,0 +1,6 @@
+{
+  "name": "Text to សំឡេង",
+  "description": "Powerful Text to Speech (TTS) converter for Khmer and international languages with voice pitch, speed controls, audio export, phrasebook, and history.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

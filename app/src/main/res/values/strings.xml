@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Text to សំឡេង</string>
+    <string name="tab_convert">បំលែង / Convert</string>
+    <string name="tab_phrases">ឃ្លាគំរូ / Phrases</string>
+    <string name="tab_numbers">លេខ / Numbers</string>
+    <string name="tab_history">ប្រវត្តិ / History</string>
+    <string name="tab_settings">ការកំណត់ / Settings</string>
+</resources>
