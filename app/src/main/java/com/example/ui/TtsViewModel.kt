@@ -204,10 +204,80 @@ class TtsViewModel(application: Application) : AndroidViewModel(application) {
         return KhmerNumberConverter.toKhmerDigits(arabic)
     }
 
+    fun getConvertedRiel(): String {
+        val raw = _numberInput.value
+        if (raw.isBlank()) return ""
+        val arabic = KhmerNumberConverter.toArabicDigits(raw)
+        return try {
+            val num = arabic.toLong()
+            KhmerNumberConverter.readAsRiel(num)
+        } catch (e: Exception) {
+            ""
+        }
+    }
+
+    fun getConvertedUsd(): String {
+        val raw = _numberInput.value
+        if (raw.isBlank()) return ""
+        val arabic = KhmerNumberConverter.toArabicDigits(raw)
+        return try {
+            val num = arabic.toLong()
+            KhmerNumberConverter.readAsUsd(num)
+        } catch (e: Exception) {
+            ""
+        }
+    }
+
+    fun getConvertedYear(): String {
+        val raw = _numberInput.value
+        if (raw.isBlank()) return ""
+        val arabic = KhmerNumberConverter.toArabicDigits(raw)
+        return try {
+            val num = arabic.toLong()
+            KhmerNumberConverter.readAsYear(num)
+        } catch (e: Exception) {
+            ""
+        }
+    }
+
+    fun getConvertedDigitByDigit(): String {
+        val raw = _numberInput.value
+        if (raw.isBlank()) return ""
+        return KhmerNumberConverter.readDigitByDigit(raw)
+    }
+
     fun speakConvertedNumber() {
         val words = getConvertedKhmerNumberWords()
         if (words.isNotBlank() && !words.startsWith("សូម") && !words.startsWith("លេខ")) {
             speakCustomText(words, "km")
+        }
+    }
+
+    fun speakConvertedRiel() {
+        val riel = getConvertedRiel()
+        if (riel.isNotBlank()) {
+            speakCustomText(riel, "km")
+        }
+    }
+
+    fun speakConvertedUsd() {
+        val usd = getConvertedUsd()
+        if (usd.isNotBlank()) {
+            speakCustomText(usd, "km")
+        }
+    }
+
+    fun speakConvertedYear() {
+        val year = getConvertedYear()
+        if (year.isNotBlank()) {
+            speakCustomText(year, "km")
+        }
+    }
+
+    fun speakConvertedDigitByDigit() {
+        val digits = getConvertedDigitByDigit()
+        if (digits.isNotBlank()) {
+            speakCustomText(digits, "km")
         }
     }
 

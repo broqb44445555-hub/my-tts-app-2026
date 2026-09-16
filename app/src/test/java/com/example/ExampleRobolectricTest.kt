@@ -6,6 +6,7 @@ import com.example.data.util.KhmerNumberConverter
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
@@ -17,7 +18,15 @@ class ExampleRobolectricTest {
   fun `read string from context`() {
     val context = ApplicationProvider.getApplicationContext<Context>()
     val appName = context.getString(R.string.app_name)
-    assertEquals("Text to សំឡេង", appName)
+    assertEquals("Text to សំឡេងខ្មែរ", appName)
+  }
+
+  @Test
+  fun `main activity launches successfully`() {
+    val controller = Robolectric.buildActivity(MainActivity::class.java)
+    controller.setup()
+    val activity = controller.get()
+    org.junit.Assert.assertNotNull(activity)
   }
 
   @Test
@@ -27,6 +36,9 @@ class ExampleRobolectricTest {
     assertEquals("ដប់ប្រាំ", KhmerNumberConverter.numberToKhmerWords(15))
     assertEquals("ម្ភៃ", KhmerNumberConverter.numberToKhmerWords(20))
     assertEquals("១២៣", KhmerNumberConverter.toKhmerDigits("123"))
+    assertEquals("ប្រាំម៉ឺន រៀល", KhmerNumberConverter.readAsRiel(50000))
+    assertEquals("ឆ្នាំ ពីរពាន់ម្ភៃប្រាំមួយ", KhmerNumberConverter.readAsYear(2026))
+    assertEquals("សូន្យ មួយ ពីរ", KhmerNumberConverter.readDigitByDigit("012"))
   }
 }
 

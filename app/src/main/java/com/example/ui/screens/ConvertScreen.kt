@@ -83,6 +83,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ui.TtsViewModel
 import com.example.ui.components.AudioVisualizerWave
+import com.example.ui.components.KhmerHeaderBanner
 import java.util.Locale
 
 @OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
@@ -111,77 +112,48 @@ fun ConvertScreen(
         "សួស្តី!",
         "អរគុណច្រើន",
         "សុខសប្បាយជាទេ?",
-        "សូមស្វាគមន៍",
-        "រីករាយដែលបានស្គាល់"
+        "ចេះពីរៀន មានពីរក",
+        "ក្ដៅស៊ីរាក់ ត្រជាក់ស៊ីជ្រៅ",
+        "៥០,០០០ ៛"
     )
 
     Column(
         modifier = modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .padding(horizontal = 16.dp, vertical = 12.dp),
-        verticalArrangement = Arrangement.spacedBy(14.dp)
+            .padding(horizontal = 16.dp, vertical = 10.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        // Hero Header Card
+        // Authentic Khmer Cultural Banner
+        KhmerHeaderBanner()
+
+        // Hero Wave Card
         Card(
             modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(20.dp),
+            shape = RoundedCornerShape(18.dp),
             colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.6f)
+                containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.45f)
             )
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(12.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(36.dp)
-                            .background(MaterialTheme.colorScheme.primary, CircleShape),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.VolumeUp,
-                            contentDescription = "TTS Icon",
-                            tint = MaterialTheme.colorScheme.onPrimary,
-                            modifier = Modifier.size(20.dp)
-                        )
-                    }
-                    Spacer(modifier = Modifier.width(10.dp))
-                    Column {
-                        Text(
-                            text = "បំលែងអក្សរទៅជាសំឡេង",
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer
-                        )
-                        Text(
-                            text = "Khmer & Multilingual Text-to-Speech",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f)
-                        )
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(10.dp))
-
                 // Visualizer Wave
                 AudioVisualizerWave(
                     isSpeaking = isSpeaking,
                     modifier = Modifier.padding(horizontal = 8.dp),
-                    height = 48.dp,
+                    height = 42.dp,
                     primaryColor = MaterialTheme.colorScheme.primary,
                     secondaryColor = MaterialTheme.colorScheme.secondary
                 )
 
+                Spacer(modifier = Modifier.height(6.dp))
+
                 Text(
-                    text = if (isSpeaking) "កំពុងអានសំឡេង... (Speaking)" else if (isReady) "រួចរាល់សម្រាប់អាន (Ready to speak)" else "កំពុងរៀបចំម៉ាស៊ីនសំឡេង... (Initializing...)",
+                    text = if (isSpeaking) "កំពុងអានសំឡេង... (Speaking)" else if (isReady) "រួចរាល់សម្រាប់អាន (Ready to speak)" else "កំពុងរៀបចំម៉ាស៊ីនសំឡេង...",
                     style = MaterialTheme.typography.labelMedium,
                     fontWeight = FontWeight.Medium,
                     color = if (isSpeaking) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant

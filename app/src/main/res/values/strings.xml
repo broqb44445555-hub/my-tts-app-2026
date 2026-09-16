@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">Text to សំឡេង</string>
-    <string name="tab_convert">បំលែង / Convert</string>
-    <string name="tab_phrases">ឃ្លាគំរូ / Phrases</string>
-    <string name="tab_numbers">លេខ / Numbers</string>
-    <string name="tab_history">ប្រវត្តិ / History</string>
-    <string name="tab_settings">ការកំណត់ / Settings</string>
+    <string name="app_name">Text to សំឡេងខ្មែរ</string>
+    <string name="tab_convert">បំលែងសំឡេង</string>
+    <string name="tab_phrases">ឃ្លា &amp; សុភាសិត</string>
+    <string name="tab_alphabet">អក្សរ &amp; ស្រៈខ្មែរ</string>
+    <string name="tab_numbers">លេខ &amp; ប្រាក់រៀល</string>
+    <string name="tab_history">ប្រវត្តិ</string>
+    <string name="tab_settings">ការកំណត់</string>
 </resources>

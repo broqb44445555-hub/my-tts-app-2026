@@ -1,6 +1,6 @@
 {
-  "name": "Text to សំឡេង",
-  "description": "Powerful Text to Speech (TTS) converter for Khmer and international languages with voice pitch, speed controls, audio export, phrasebook, and history.",
+  "name": "Text to សំឡេងខ្មែរ",
+  "description": "កម្មវិធីបំលែងអត្ថបទទៅជាសំឡេងខ្មែរបែបប្រពៃណី និងអន្តរជាតិ រួមមានការអានអក្សរខ្មែរ ស្រៈនិស្ស័យ សុភាសិត លេខ ប្រាក់រៀល និងប្រវត្តិសំឡេង។",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

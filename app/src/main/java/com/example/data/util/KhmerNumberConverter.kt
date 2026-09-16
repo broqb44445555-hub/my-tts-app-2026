@@ -97,4 +97,28 @@ object KhmerNumberConverter {
         val khmerNum = toKhmerDigits(amount.toString())
         return "$khmerNum ៛ ($words រៀល)"
     }
+
+    fun readAsRiel(amount: Long): String {
+        val words = numberToKhmerWords(amount)
+        return "$words រៀល"
+    }
+
+    fun readAsUsd(amount: Long): String {
+        val words = numberToKhmerWords(amount)
+        return "$words ដុល្លារ"
+    }
+
+    fun readAsYear(year: Long): String {
+        val words = numberToKhmerWords(year)
+        return "ឆ្នាំ $words"
+    }
+
+    fun readDigitByDigit(input: String): String {
+        val clean = toArabicDigits(input).filter { it.isDigit() }
+        val digitNames = arrayOf("សូន្យ", "មួយ", "ពីរ", "បី", "បួន", "ប្រាំ", "ប្រាំមួយ", "ប្រាំពីរ", "ប្រាំបី", "ប្រាំបួន")
+        return clean.mapNotNull { ch ->
+            val d = ch.digitToIntOrNull()
+            if (d != null && d in 0..9) digitNames[d] else null
+        }.joinToString(" ")
+    }
 }

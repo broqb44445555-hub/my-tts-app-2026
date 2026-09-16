@@ -126,7 +126,7 @@ fun PhrasesScreen(
             FilterChip(
                 selected = selectedCategory == "All",
                 onClick = { viewModel.setPhraseCategory("All") },
-                label = { Text("ទាំងអស់ (All)") },
+                label = { Text("ទាំងអស់") },
                 colors = FilterChipDefaults.filterChipColors(
                     selectedContainerColor = MaterialTheme.colorScheme.primaryContainer,
                     selectedLabelColor = MaterialTheme.colorScheme.onPrimaryContainer
@@ -138,7 +138,7 @@ fun PhrasesScreen(
                 FilterChip(
                     selected = selectedCategory == catKey,
                     onClick = { viewModel.setPhraseCategory(catKey) },
-                    label = { Text("$catKhmer ($catKey)") },
+                    label = { Text(catKhmer) },
                     colors = FilterChipDefaults.filterChipColors(
                         selectedContainerColor = MaterialTheme.colorScheme.primaryContainer,
                         selectedLabelColor = MaterialTheme.colorScheme.onPrimaryContainer
@@ -216,7 +216,7 @@ fun PhraseItemCard(
                     shape = RoundedCornerShape(6.dp)
                 ) {
                     Text(
-                        text = "${phrase.categoryKhmer} • ${phrase.category}",
+                        text = phrase.categoryKhmer,
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSecondaryContainer,
                         modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
